@@ -1,5 +1,5 @@
 # Rails Test Project
-=============
+
 NOTE: This is an empty Rails 4.1 project. Please fork it, and submit a pull request. You're free to use any gems, or tools that you like to complete these tasks.
 
 **Goal**: Create a customer registration form that allows a customer to register their business with some brokers.
