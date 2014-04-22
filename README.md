@@ -60,8 +60,10 @@ The 6 types of companies and their form fields are below
   2. Address
 
 **Design requirements:**
-The form should dynamically show the correct fields depending on the company type selected
-Only when the user has completed the minimal fields (marked with *), should the user be allowed to proceed to the next stage
+- The form should dynamically show the correct fields depending on the company type selected
+- Only when the user has completed the minimal fields (marked with *), should the user be allowed to proceed to the next stage
+
+While not essential, effort on making the UX good with transitions and animations, wherever relevant, would be great.
 
 ## 3. Supporting Documents
 Allow the user to upload any supporting documents required for their registration.
