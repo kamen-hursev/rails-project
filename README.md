@@ -29,6 +29,7 @@ The goal of the registration page is to help the user complete the form fields i
 **Functional requirements:**
 - Use good judgement for validation considerations, and where to handle them (client vs server).
 - The registration form needs to be dynamic, whereby it displays certain fields only in certain company types.
+- Consider appropriate use of Javascript to improve the UX
 
 The 6 types of companies and their form fields are below
 
