@@ -1,0 +1,2 @@
+class LimitedCompany < Company
+end

@@ -1,0 +1,2 @@
+class Charity < Company
+end

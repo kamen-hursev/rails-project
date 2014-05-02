@@ -11,11 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502102205) do
+ActiveRecord::Schema.define(version: 20140502130823) do
 
   create_table "brokers", force: true do |t|
     t.string   "name"
     t.string   "image_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "brokers_companies", force: true do |t|
+    t.integer "broker_id",  null: false
+    t.integer "company_id", null: false
+  end
+
+  create_table "companies", force: true do |t|
+    t.string   "name",                  null: false
+    t.string   "address"
+    t.string   "identification_number"
+    t.string   "email"
+    t.boolean  "listed_on_exchange"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

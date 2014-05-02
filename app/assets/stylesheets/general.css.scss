@@ -4,3 +4,7 @@
   @extend .btn;
   @extend .btn-primary;
 }
+
+form .error {
+  color: red;
+}

@@ -13,6 +13,16 @@
         $this.addClass("selected");
       }
     });
+
+    $("form#brokers").on("ajax:success", function (event, data, status) {
+      if (!data.success) {
+        var error = $("<p></p>").addClass("error").html(data.error);
+        error.insertAfter($(this).find(".btn-next"));
+        error.fadeOut(3000);
+      } else {
+        window.location = $(this).data("successUrl");
+      }
+    });
   });
 
   function canSelectBroker() {

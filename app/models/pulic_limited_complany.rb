@@ -1,0 +1,2 @@
+class PulicLimitedComplany < Company
+end

@@ -1,0 +1,2 @@
+class Trust < Company
+end
