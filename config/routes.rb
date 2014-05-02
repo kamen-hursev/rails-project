@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'companies/new'
+
   get 'register' => 'brokers#select', as: :start_registration
   post 'brokers/submit', as: :submit_brokers
 
-  resources :company
+  resources :companies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
