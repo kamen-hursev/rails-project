@@ -1,0 +1,16 @@
+<h1>Please select brokers</h1>
+
+<%= form_tag submit_brokers_path, method: :post do %>
+  <ul class="brokers-list">
+    <% @brokers.each do |b| %>
+      <li>
+        <%= image_tag 'brokers/' + b.image_path %>
+        <div class="name"><%= b.name %></div>
+        <%= check_box_tag 'brokers[]', b.id, false %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="clearfix"></div>
+  <p>Please select at least one broker and maximum three.</p>
+  <%= submit_tag 'Next', class: 'btn-next' %>
+<% end %>

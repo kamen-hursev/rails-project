@@ -1,0 +1,29 @@
+// Place all the styles related to the register controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.brokers-list {
+  li {
+    list-style: none;
+    float: left;
+    margin: 20px;
+    cursor: pointer;
+    width: 250px;
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+
+    .name {
+      text-align: center;
+    }
+  }
+
+  li:hover {
+    background-color: white;
+  }
+
+  li.selected {
+    background-color: #5CB85C;
+  }
+}
