@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+brokers = [
+  {name: 'John', image_path: 'm01.png'},
+  {name: 'Sandra', image_path: 'f01.png'},
+  {name: 'Mike', image_path: 'm02.png'},
+  {name: 'Ann', image_path: 'f02.png'},
+  {name: 'James', image_path: 'm03.png'},
+  {name: 'Margaret', image_path: 'f03.png'}
+]
+Broker.create(brokers)
