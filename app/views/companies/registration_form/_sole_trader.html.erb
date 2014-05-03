@@ -1,0 +1,10 @@
+<%= render layout: 'form', locals: { company: company, type: type } do |f| %>
+  <div class="field">
+    <%= f.label :name, 'Full name *' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+<% end %>

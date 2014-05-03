@@ -1,1 +1,15 @@
-partnership
+<%= render layout: 'form', locals: { company: company, type: type } do |f| %>
+  <div class="field">
+    <%= f.label :name, 'Full name *' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :identification_number, 'Charity Number' %><br>
+    <%= f.text_field :identification_number %>
+  </div>
+  <div> partners 0 to 4</div>
+<% end %>

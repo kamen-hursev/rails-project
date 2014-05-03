@@ -1,1 +1,14 @@
-public_limited_company
+<%= render layout: 'form', locals: { company: company, type: type } do |f| %>
+  <div class="field">
+    <%= f.label :name, 'Company name *' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :listed_on_exchange, 'Listed on exchange?' %><br>
+    <%= f.check_box :listed_on_exchange %>
+  </div>
+  <div class="field">
+    <%= f.label :identification_number, 'Registration Number' %><br>
+    <%= f.text_field :identification_number %>
+  </div>
+<% end %>
