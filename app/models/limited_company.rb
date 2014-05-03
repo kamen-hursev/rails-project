@@ -7,7 +7,7 @@ class LimitedCompany < Company
 
   private
 
-  def valid_number_of_related_people
+  def validate_number_of_related_people
     unless people.size.between?(1, MAX_DIRECTORS)
       errors.add(:directors, " should be between 1 and #{MAX_DIRECTORS}")
     end

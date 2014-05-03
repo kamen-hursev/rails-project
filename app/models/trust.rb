@@ -3,7 +3,7 @@ class Trust < Company
 
   private
 
-  def valid_number_of_related_people
+  def validate_number_of_related_people
     true # we can add whatever number we want, so just overwrite the base validation method
   end
 end
