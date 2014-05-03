@@ -3,6 +3,8 @@ class Company < ActiveRecord::Base
 
   has_and_belongs_to_many :brokers
 
+  validates :name, presence: true
+  validates :email, format: { with: /\A[^@]+@[^@]+\.[^@]+\z/, message: ' is invalid format' }
   validate :validate_number_of_brokers
 
   def validate_number_of_brokers

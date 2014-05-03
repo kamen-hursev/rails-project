@@ -1,0 +1,2 @@
+class PublicLimitedCompany < Company
+end

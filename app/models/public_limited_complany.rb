@@ -1,2 +1,0 @@
-class PublicLimitedComplany < Company
-end

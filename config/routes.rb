@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'companies/new', as: :new_company
   get 'companies/registration_form', as: :registration_form
+  post 'companies/create', as: :create_company
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

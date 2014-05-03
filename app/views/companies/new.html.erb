@@ -1,9 +1,13 @@
 <h1>Company infomration</h1>
 <p>Please enter company information. (fields with * are required)</p>
-<%= label_tag :company_type, 'Company Type' %>
+<%= label_tag :company_type, 'Company Type' %><br>
 <%= select_tag :company_type,
-               options_for_select(@company_types),
+               options_for_select(@company_types, @type),
                prompt: '-- Select --',
                data: {url: registration_form_url}
                %>
-<div id="company_info"></div>
+<div id="company_info">
+  <% if @company && @type %>
+    <%= render 'companies/registration_form/' + @type, company: @company, type: @type %>
+  <% end %>
+</div>
