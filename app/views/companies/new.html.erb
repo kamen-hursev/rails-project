@@ -8,6 +8,7 @@
                %>
 <div id="company_info">
   <% if @company && @type %>
+    <%= debug(@company) %>
     <%= render 'companies/registration_form/' + @type, company: @company, type: @type %>
   <% end %>
 </div>

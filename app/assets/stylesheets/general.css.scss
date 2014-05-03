@@ -5,6 +5,11 @@
   @extend .btn-primary;
 }
 
+.btn-add {
+  @extend .btn;
+  @extend .btn-default;
+}
+
 form .error {
   color: red;
 }
@@ -12,6 +17,9 @@ form .error {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+  }
+  &.actions {
+    margin-top: 10px;
   }
 }
 

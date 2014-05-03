@@ -46,11 +46,12 @@ class CompaniesController < ApplicationController
   end
 
   def limited_company_params
-    params.require(:charity).permit(
+    params.require(:limited_company).permit(
       :type,
       :name,
       :identification_number,
-      :email
+      :email,
+      people_attributes: [:name]
     )
   end
 

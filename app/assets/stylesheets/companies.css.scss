@@ -1,3 +1,12 @@
-// Place all the styles related to the companies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.company-people {
+  overflow: hidden;
+
+  li {
+    width: 230px;
+    float: left;
+  }
+
+  li.template {
+    display: none;
+  }
+}
