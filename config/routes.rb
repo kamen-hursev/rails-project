@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'companies/new'
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 
   get 'register' => 'brokers#select', as: :start_registration
   post 'brokers/submit', as: :submit_brokers
 
-  resources :companies
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'companies/new', as: :new_company
+  get 'companies/registration_form', as: :registration_form
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

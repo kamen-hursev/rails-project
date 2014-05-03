@@ -1,2 +1,9 @@
-<h1>Companies#new</h1>
-<p>Find me in app/views/companies/new.html.erb</p>
+<h1>Company infomration</h1>
+<p>Please enter company information. (fields with * are required)</p>
+<%= label_tag :company_type, 'Company Type' %>
+<%= select_tag :company_type,
+               options_for_select(@company_types),
+               prompt: '-- Select --',
+               data: {url: registration_form_url}
+               %>
+<div id="company_info"></div>

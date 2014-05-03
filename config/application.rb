@@ -20,6 +20,7 @@ module RailsProject
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.company_types = %w(charity limited_company partnership public_limited_company trust sole_trader)
+    config.company_types = %w(charity limited_company partnership
+                              public_limited_company trust sole_trader)
   end
 end
