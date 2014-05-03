@@ -11,10 +11,12 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div>Names of up to <%= LimitedCompany::MAX_DIRECTORS %> directors *</div>
-  <%= render 'related_people',
-             f: f,
-             max_items: LimitedCompany::MAX_DIRECTORS,
-             company: company
-             %>
+  <div class="field" >
+    <%= f.label :directors, "Names of up to #{LimitedCompany::MAX_DIRECTORS} directors *" %><br>
+    <%= render 'related_people',
+               f: f,
+               max_items: LimitedCompany::MAX_DIRECTORS,
+               company: company
+               %>
+  </div>
 <% end %>

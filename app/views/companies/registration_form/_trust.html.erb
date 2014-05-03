@@ -7,10 +7,12 @@
     <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
-  <div>Names of all trustees</div>
-  <%= render 'related_people',
-             f: f,
-             max_items: Trust::MAX_TRUSTEES,
-             company: company
-             %>
+  <div class="field" >
+    <%= f.label :trustees, 'Names of all trustees' %><br>
+    <%= render 'related_people',
+               f: f,
+               max_items: Trust::MAX_TRUSTEES,
+               company: company
+               %>
+  <div>
 <% end %>
