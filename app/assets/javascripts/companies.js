@@ -24,10 +24,5 @@
           $this.hide();
         }
     });
-
-    $("#company_info").on("submit", "form", function () {
-      // we need this to prevent the template li being submitted
-      $(this).find("li.template").remove();
-    });
   });
 })();

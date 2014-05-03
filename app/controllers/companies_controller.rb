@@ -32,11 +32,15 @@ class CompaniesController < ApplicationController
   def company_params
     @type = params[:type]
     method_name = (@type + '_params').to_sym
+    logger.debug '=' * 40
+    logger.debug params.inspect
+    remove_template_inputs(@type)
+    logger.debug params.inspect
     self.send(method_name)
   end
 
   def charity_params
-    params.require(:charity).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :address,
@@ -46,7 +50,7 @@ class CompaniesController < ApplicationController
   end
 
   def limited_company_params
-    params.require(:limited_company).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :identification_number,
@@ -56,7 +60,7 @@ class CompaniesController < ApplicationController
   end
 
   def partnership_params
-    params.require(:partnership).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :address,
@@ -66,7 +70,7 @@ class CompaniesController < ApplicationController
   end
 
   def public_limited_company_params
-    params.require(:public_limited_company).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :listed_on_exchange,
@@ -75,7 +79,7 @@ class CompaniesController < ApplicationController
   end
 
   def trust_params
-    params.require(:trust).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :address,
@@ -84,10 +88,16 @@ class CompaniesController < ApplicationController
   end
 
   def sole_trader_params
-    params.require(:sole_trader).permit(
+    params.require(@type).permit(
       :type,
       :name,
       :address
     )
+  end
+
+  def remove_template_inputs(type)
+    if params[type].has_key?('people_attributes')
+      params[type]['people_attributes'].delete('--replace--')
+    end
   end
 end
