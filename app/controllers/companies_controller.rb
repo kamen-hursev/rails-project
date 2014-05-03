@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :brokers_selected?, only: [:new, :create]
+
   def new
     load_company_types
   end
@@ -15,7 +17,7 @@ class CompaniesController < ApplicationController
     @company.broker_ids = session[:brokers]
     result = @company.save
     if result
-      session.delete(:brokers)
+      session.delete :brokers
       after_create_redirect
     else
       load_company_types
@@ -24,6 +26,12 @@ class CompaniesController < ApplicationController
   end
 
   private
+
+  def brokers_selected?
+    unless session.key? :brokers
+      redirect_to start_registration_path, notice: 'Please select brokers'
+    end
+  end
 
   def after_create_redirect
     if @company.instance_of? LimitedCompany
@@ -42,8 +50,8 @@ class CompaniesController < ApplicationController
   def company_params
     @type = params[:type]
     method_name = (@type + '_params').to_sym
-    remove_template_inputs(@type)
-    self.send(method_name)
+    remove_template_inputs @type
+    self.send method_name
   end
 
   def charity_params
@@ -103,7 +111,7 @@ class CompaniesController < ApplicationController
   end
 
   def remove_template_inputs(type)
-    if params[type].has_key?('people_attributes')
+    if params[type].key?('people_attributes')
       params[type]['people_attributes'].delete('--replace--')
     end
   end

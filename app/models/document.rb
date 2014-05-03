@@ -11,6 +11,8 @@ class Document < ActiveRecord::Base
   private
 
   def valid_company_type
-    company.instance_of? LimitedCompany
+    unless company.instance_of? LimitedCompany
+      errors.add(:company, ' should be Limited Company in order to upload a document')
+    end
   end
 end
