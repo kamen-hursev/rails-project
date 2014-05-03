@@ -3,6 +3,8 @@ class LimitedCompany < Company
   # include RelatedPeople
   MAX_DIRECTORS = 4
 
+  has_one :document, dependent: :destroy
+
   private
 
   def valid_number_of_related_people

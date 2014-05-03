@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'documents/select_file'
+
+  get 'documents/upload_file'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +12,8 @@ Rails.application.routes.draw do
   get 'companies/new', as: :new_company
   get 'companies/registration_form', as: :registration_form
   post 'companies/create', as: :create_company
+  get 'companies/:company_id/upload_file' => 'documents#new', as: :new_document
+  post 'documents/create', as: :create_document
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

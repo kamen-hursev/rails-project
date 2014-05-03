@@ -1,0 +1,18 @@
+<h1>Upload a file</h1>
+<p>Please upload proof of address.</p>
+
+<%= form_for(@document,
+             url: create_document_path,
+             methd: :post,
+             html: { class: 'simple-form' } ) do |f| %>
+  <%= render 'shared/errors', obj: @document %>
+  <%= f.hidden_field :company_id %>
+  <div class="field">
+    <%= f.label :file %><br>
+    <%= f.file_field :file %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Upload', class: 'submit' %>
+  </div>
+<% end %>
+

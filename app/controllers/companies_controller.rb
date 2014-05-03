@@ -12,10 +12,11 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new company_params
-    @company.broker_ids = session[:brokers] # probably should move this in params
+    @company.broker_ids = session[:brokers]
     result = @company.save
     if result
-      redirect_to thank_you_path
+      session.delete(:brokers)
+      after_create_redirect
     else
       load_company_types
       render 'new'
@@ -23,6 +24,15 @@ class CompaniesController < ApplicationController
   end
 
   private
+
+  def after_create_redirect
+    if @company.instance_of? LimitedCompany
+      path = new_document_path company_id: @company.id
+    else
+      path = thank_you_path
+    end
+    redirect_to path
+  end
 
   def load_company_types
     types = RailsProject::Application.config.company_types
