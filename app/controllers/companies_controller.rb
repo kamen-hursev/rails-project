@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
     @company.broker_ids = session[:brokers] # probably should move this in params
     result = @company.save
     if result
-      redirect_to root_path, notice: 'Company registered successfully.'
+      redirect_to thank_you_path
     else
       load_company_types
       render 'new'
@@ -32,10 +32,7 @@ class CompaniesController < ApplicationController
   def company_params
     @type = params[:type]
     method_name = (@type + '_params').to_sym
-    logger.debug '=' * 40
-    logger.debug params.inspect
     remove_template_inputs(@type)
-    logger.debug params.inspect
     self.send(method_name)
   end
 
