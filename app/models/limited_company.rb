@@ -3,8 +3,6 @@ class LimitedCompany < Company
   # include RelatedPeople
   MAX_DIRECTORS = 4
 
-  validate :valid_number_of_related_people
-
   private
 
   def valid_number_of_related_people

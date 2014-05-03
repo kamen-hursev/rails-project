@@ -20,7 +20,7 @@
         addSection = $("<li></li>").html(content).addClass("section");
 
         addSection.insertBefore(template);
-        if ($this.data("maxItems") <= $(".company-people li.section").length) {
+        if ($this.data("maxItems") && $this.data("maxItems") <= $(".company-people li.section").length) {
           $this.hide();
         }
     });

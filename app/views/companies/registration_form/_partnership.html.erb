@@ -11,5 +11,10 @@
     <%= f.label :identification_number, 'Charity Number' %><br>
     <%= f.text_field :identification_number %>
   </div>
-  <div> partners 0 to 4</div>
+  <div>Names of up to <%= Partnership::MAX_PARTNERS %> partners</div>
+  <%= render 'related_people',
+             f: f,
+             max_items: Partnership::MAX_PARTNERS,
+             company: company
+             %>
 <% end %>

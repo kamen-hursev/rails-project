@@ -1,0 +1,16 @@
+<ul class="company-people media-list">
+  <%= f.fields_for :people do |person_field| %>
+    <%= render 'person_item', f: person_field, html_class: 'section' %>
+  <% end %>
+  <%= f.fields_for :people, Person.new, child_index: '--replace--' do |person_template| %>
+    <%= render 'person_item', f: person_template, html_class: 'template' %>
+  <% end %>
+</ul>
+<% if max_items.nil? || company.people.size < max_items %>
+  <%= button_tag 'Add', type: 'button', class: 'add-person btn-add',
+                  data: {
+                    'replace-pattern' => '--replace--',
+                    'max-items' => max_items
+                  }
+  %>
+<% end %>

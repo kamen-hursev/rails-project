@@ -60,7 +60,8 @@ class CompaniesController < ApplicationController
       :type,
       :name,
       :address,
-      :identification_number
+      :identification_number,
+      people_attributes: [:name]
     )
   end
 
@@ -77,7 +78,8 @@ class CompaniesController < ApplicationController
     params.require(:trust).permit(
       :type,
       :name,
-      :address
+      :address,
+      people_attributes: [:name]
     )
   end
 

@@ -11,21 +11,10 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div>Names of up to 4 Directors *</div>
-  <ul class="company-people media-list">
-    <%= f.fields_for :people do |person_field| %>
-      <%= render 'person_item', f: person_field, html_class: 'section' %>
-    <% end %>
-    <%= f.fields_for :people, Person.new, child_index: '--replace--' do |person_template| %>
-      <%= render 'person_item', f: person_template, html_class: 'template' %>
-    <% end %>
-  </ul>
-  <% if company.people.size < LimitedCompany::MAX_DIRECTORS %>
-    <%= button_tag 'Add Director', type: 'button', class: 'add-person btn-add',
-                    data: {
-                      'replace-pattern' => '--replace--',
-                      'max-items' => LimitedCompany::MAX_DIRECTORS
-                    }
-    %>
-  <% end %>
+  <div>Names of up to <%= LimitedCompany::MAX_DIRECTORS %> directors *</div>
+  <%= render 'related_people',
+             f: f,
+             max_items: LimitedCompany::MAX_DIRECTORS,
+             company: company
+             %>
 <% end %>
