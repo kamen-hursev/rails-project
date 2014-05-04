@@ -1,4 +1,6 @@
 class Trust < Company
+  include RelatedPeople
+
   MAX_TRUSTEES = nil
 
   private

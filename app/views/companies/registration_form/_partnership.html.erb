@@ -13,7 +13,6 @@
   </div>
   <div class="field">
     <%= f.label :partners, "Names of up to #{Partnership::MAX_PARTNERS} partners" %><br>
-    <div>Names of up to <%= Partnership::MAX_PARTNERS %> partners</div>
     <%= render 'related_people',
                f: f,
                max_items: Partnership::MAX_PARTNERS,

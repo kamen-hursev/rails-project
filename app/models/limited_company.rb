@@ -1,6 +1,5 @@
 class LimitedCompany < Company
-  # TODO: see if you can make this with a concern
-  # include RelatedPeople
+  include RelatedPeople
   MAX_DIRECTORS = 4
 
   has_one :document, dependent: :destroy

@@ -1,4 +1,6 @@
 class Partnership < Company
+  include RelatedPeople
+
   MAX_PARTNERS = 4
 
   private
